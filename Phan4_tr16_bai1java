@@ -1,0 +1,147 @@
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class StudentManager {
+    private Map<String, Student> studentMap = new HashMap<String, Student>();
+    private Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        StudentManager manager = new StudentManager();
+        manager.ru 
+    public void run() {
+        System.out.println("Welcome to the Student Manager!");
+    
+        boolean done = false;
+        while (!done) {
+            System.out.println("What would you like to do?");
+            System.out.println("1. Add a student");
+            System.out.println("2. Remove a student");
+            System.out.println("3. Search for a student");
+            System.out.println("4. Exit");
+    
+            int choice = scanner.nextInt();
+            scanner.nextLine(); // consume the newline character
+    
+            switch (choice) {
+                case 1:
+                    addStudent();
+                    break;
+                case 2:
+                    removeStudent();
+                    break;
+                case 3:
+                    searchStudent();
+                    break;
+                case 4:
+                    done = true;
+                    break;
+                default:
+                    System.out.println("Invalid choice, please try again.");
+            }
+        }
+    }
+    
+    private void addStudent() {
+        System.out.println("Enter student name:");
+        String name = scanner.nextLine();
+    
+        System.out.println("Enter student address:");
+        String address = scanner.nextLine();
+    
+        System.out.println("Enter student program:");
+        String program = scanner.nextLine();
+    
+        System.out.println("Enter student year:");
+        int year = scanner.nextInt();
+        scanner.nextLine(); // consume the newline character
+    
+        System.out.println("Enter student fee:");
+        double fee = scanner.nextDouble();
+        scanner.nextLine(); // consume the newline character
+    
+        Student student = new Student(name, address, program, year, fee);
+        studentMap.put(name, student);
+    
+        System.out.println("Student added: " + student);
+    }
+    
+    private void removeStudent() {
+        System.out.println("Enter student name to remove:");
+        String name = scanner.nextLine();
+    
+        if (studentMap.containsKey(name)) {
+            Student removed = studentMap.remove(name);
+            System.out.println("Student removed: " + removed);
+        } else {
+            System.out.println("Student not found.");
+        }
+    }
+    
+    private void searchStudent() {
+        System.out.println("Enter student name to search:");
+        String name = scanner.nextLine();
+    
+        if (studentMap.containsKey(name)) {
+            Student found = studentMap.get(name);
+            System.out.println("Student found: " + found);
+        } else {
+            System.out.println("Student not found.");
+        }
+    }
+}
+
+class Person{
+    private String name;
+    private String address;
+
+    public Person(String name, String address){
+        this.name=name;
+        this.address=address;
+    }
+    public String getName(){
+        return name;
+    }
+    public String getAddress(){
+        return address;
+    }
+    public void setAddress(String address){
+        this.address=address;
+    }
+ }
+ class Student extends Person{
+    private String program;
+    private int year;
+    private double fee;
+
+    public Student(String name,String address, String program, int year, double fee){
+        super(name, address);
+        this.program=program;
+        this.year=year;
+        this.fee=fee;
+    }
+    public String getProgram(){
+        return program;
+    }
+    public void setProgram(String program){
+        this.program=program;
+    }
+    public int getYear(){
+        return year;
+    }
+    public void setYear(int year){
+        this.year=year;
+    }
+    public double getFree(){
+        return fee;
+    }
+    public void setFee(double fee){
+        this.fee=fee;
+    }
+    public String toString(){
+        return "Student [Person[name="+getName()+",address= "+getAddress()+"], program= "+getProgram()+", year= "+year+", fee= "+ fee+"]";
+    }
+ }
+//Values la tenm], Key la Student
+
+

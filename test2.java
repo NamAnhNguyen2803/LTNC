@@ -1,0 +1,40 @@
+public class test2 {
+    
+}
+abstract class Shape{
+    protected String color="red";
+    protected boolean filled=true;
+
+    public Shape(){
+
+    }
+    public Shape(String color,boolean filled){
+        this.color=color;
+        this.filled=filled;
+    }
+    public String getColor(){
+        return color;
+    }
+    public void setColor(String color){
+        this.color=color;
+    }
+    public boolean isFilled(){
+        return true;
+    }
+    public void setFilled(boolean filled){
+        this.filled=filled;
+    }
+    abstract public double getArea();
+    abstract public double getPerimeter();
+    public String toString(){
+        return "Shape[ color= "+color+", filled= "+filled+"]";
+    }
+}
+class Circle extends Shape{
+    protected double=1.0;
+     public Circle(){
+
+     }
+     
+
+}
